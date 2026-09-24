@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	menuBtn.addEventListener('click', () => {
 		menuBtn.classList.toggle('active');
 		headerMenu.classList.toggle('active');
-		// body.classList.toggle('no-scroll');
+		body.classList.toggle('no-scroll');
 	})
 	
 	const dropdownMedia = window.matchMedia('(max-width: 1200px)');

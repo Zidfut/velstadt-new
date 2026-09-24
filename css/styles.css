@@ -217,6 +217,7 @@ body, html {
     &.btn--primary {
         background: var(--primary-500);
         color: var(--back);
+        border: none;
 
         &::after {
             background-color: var(--primary-600);
@@ -329,12 +330,6 @@ body, html {
             border-radius: 24px;
             padding: 12px 24px;
             z-index: 9;
-            overflow-y: auto;
-            scrollbar-width: none;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
         }
 
         &.active {
@@ -359,6 +354,30 @@ body, html {
     }
 
     .header__nav {
+
+        @media(width <= 1200px) {
+            overflow-y: auto;
+            max-height: 75vh;
+            scrollbar-width: none;
+            position: relative;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 16px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #FDFCFC;
+                background: linear-gradient(0deg, rgba(253, 252, 252, 0) 0%, rgba(253, 252, 252, 1) 100%);
+            }
+        }
 
         & > ul {
             list-style: none;
@@ -406,6 +425,10 @@ body, html {
                 justify-content: space-between;
                 padding: 16px;
                 font-size: 18px;
+            }
+
+            @media(width <= 1200px) {
+                font-size: 16px;
             }
         }
 
@@ -498,7 +521,7 @@ body, html {
                 border-radius: 24px;
                 padding: 16px;
                 display: flex;
-                align-items: stretch;
+                align-items: flex-start;
                 justify-content: flex-start;
                 gap: 16px;
 
@@ -603,6 +626,10 @@ body, html {
                 height: 320px;
                 background: var(--surface);
                 position: relative;
+
+                @media(width <= 1024px) {
+                    display: none;
+                }
 
                 .award__card-img {
                     display: block;
@@ -725,6 +752,7 @@ body, html {
                     font-size: 18px;
                     line-height: 133%;
                     color: var(--gray-900);
+                    margin-bottom: 24px;
                 }
 
                 .a-link {
@@ -755,10 +783,6 @@ body, html {
         text-decoration: none;
         white-space: nowrap;
 
-        @media(width <= 768px) {
-            display: none;
-        }
-
         &.icon {
             &::before {
                 content: '';
@@ -774,6 +798,18 @@ body, html {
                 &::before {
                     background-image: url('../images/icons/alert.svg');
                 }
+            }
+        }
+
+        &.header__link-desktop {
+            @media(width <= 768px) {
+                display: none;
+            }
+        }
+
+        &.header__link-mobile {
+            @media(width > 768px) {
+                display: none;
             }
         }
     }
@@ -855,6 +891,53 @@ body, html {
             border-radius: 2px;
             background-color: var(--gray-900);
             transition: transform .3s ease;
+        }
+    }
+
+    .header__nav-top {
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 16px;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            top: 0;
+            background: #FDFCFC;
+            background: linear-gradient(0deg, rgba(253, 252, 252, 0) 0%, rgba(253, 252, 252, 1) 100%);
+        }
+
+        @media(width > 1200) {
+            display: none;
+        }
+    }
+
+    .header__nav-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 16px;
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 16px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 100%;
+            background: #FDFCFC;
+            background: linear-gradient(180deg, rgba(253, 252, 252, 0) 0%, rgba(253, 252, 252, 1) 100%);
+        }
+
+        @media(width > 1200) {
+            display: none;
         }
     }
 }
