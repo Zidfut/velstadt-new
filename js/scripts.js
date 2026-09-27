@@ -34,4 +34,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			this.classList.toggle('active');
 		});
 	});
+
+	const partnersSwiper = new Swiper(".partners__swiper", {
+		slidesPerView: "auto",
+		spaceBetween: 48,
+		loop: true,
+		speed: 6000,
+		allowTouchMove: false,
+		autoplay: {
+			delay: 1,
+			disableOnInteraction: false
+		},
+		breakpoints: {
+			320: {
+				spaceBetween: 32,
+			},
+			768: {
+				spaceBetween: 48,
+			},
+			1200: {
+				spaceBetween: 60,
+			},
+		}
+	});
 });
