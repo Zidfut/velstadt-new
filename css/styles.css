@@ -1461,6 +1461,18 @@ body {
         gap: 24px;
         max-width: 740px;
         margin: 0 auto;
+
+        @media(width <= 768px) {
+            padding-block: 48px;
+            gap: 16px;
+            max-width: 560px;
+        }
+
+        @media(width <= 576px) {
+            padding-block: 32px;
+            gap: 16px;
+            max-width: 100%;
+        }
         
         .hero__buttons {
             margin-top: 48px;
@@ -1468,6 +1480,18 @@ body {
             align-items: center;
             justify-content: center;
             gap: 24px;
+
+            @media(width <= 768px) {
+                margin-top: 32px;
+                gap: 16px;
+            }
+
+            @media(width <= 576px) {
+                margin-top: 16px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
         }
     
         .hero__subtitle {
@@ -1477,6 +1501,10 @@ body {
             line-height: 1.43;
             text-align: center;
             color: rgba(222, 217, 227, 0.6);
+
+            @media(width <= 576px) {
+                font-size: 12px;
+            }
         }
     
         .hero__title {
@@ -1486,6 +1514,14 @@ body {
             line-height: 1.07;
             text-align: center;
             color: var(--back);
+
+            @media(width <= 768px) {
+                font-size: 48px;
+            }
+
+            @media(width <= 576px) {
+                font-size: 32px;
+            }
     
             span {
                 display: block;
@@ -1503,6 +1539,14 @@ body {
             line-height: 1.4;
             text-align: center;
             color: var(--gray-200);
+
+            @media(width <= 768px) {
+                font-size: 16px;
+            }
+
+            @media(width <= 576px) {
+                font-size: 14px;
+            }
         }
     }
 
