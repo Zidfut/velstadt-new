@@ -162,6 +162,7 @@ body, html {
 
 body {
     min-height: 100dvh;
+    background-color: var(--back);
 }
 
 .container {
@@ -1864,7 +1865,7 @@ body {
             left: 20px;
             transform: translateY(-50%);
             padding: 0 4px;
-            background: #fff;
+            background: var(--back);
             font-family: var(--font-family);
             font-weight: 400;
             font-size: 14px;
@@ -1883,7 +1884,8 @@ body {
         }
 
         input:focus {
-            border: 2px solid var(--primary-100);
+            border: 1px solid var(--primary-100);
+            box-shadow: 0 0 0 2px var(--primary-200);
         }
     }
 }
