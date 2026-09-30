@@ -345,6 +345,90 @@ body {
     }
 }
 
+.section__header {
+
+    .section__header-container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 32px;
+        padding-block: 64px;
+        border-bottom: 1px solid var(--gray-100);
+
+        @media(width <= 1024px) {
+            padding-block: 44px;
+        }
+
+        @media(width <= 768px) {
+            padding-block: 36px;
+            gap: 24px;
+        }
+
+        @media(width <= 576px) {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 16px;
+        }
+    }
+
+    .section__header-left {
+        max-width: 380px;
+    }
+
+    .section__header-right {
+
+        @media(width <= 576px) {
+            width: 100%;
+        }
+
+    }
+
+    .section__subtitle {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.43;
+        color: var(--gray-500);
+        margin-bottom: 16px;
+
+        @media(width <= 768px) {
+            margin-bottom: 12px;
+        }
+    }
+
+    .section__title {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 1.2;
+        color: var(--gray-900);
+
+        @media(width <= 768px) {
+            font-size: 32px;
+        }
+    }
+
+    .link {
+        @media(width <= 576px) {
+            justify-self: flex-end;
+        }
+    }
+
+}
+
+.section {
+    .link {
+        white-space: nowrap;
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.43;
+        color: var(--gray-900);
+        text-decoration: none;
+    }
+}
+
 .header {
     position: fixed;
     top: 16px;
@@ -2013,4 +2097,25 @@ body {
         }
     }
 
+}
+
+.blog {
+    border-bottom: 1px solid var(--gray-100);
+
+    .blog__container {
+        display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        padding-inline: 24px;
+    }
+
+    .blog__main {
+        border-right: 1px solid var(--gray-100);
+        padding: 24px 24px 24px 0;
+    }
+    
+    .main__card {
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: var(--surface);
+    }
 }
