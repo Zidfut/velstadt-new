@@ -2111,11 +2111,171 @@ body {
     .blog__main {
         border-right: 1px solid var(--gray-100);
         padding: 24px 24px 24px 0;
+
+        @media(width <= 1200px) {
+            padding: 12px 12px 12px 0;
+        }
     }
     
     .main__card {
         border: 1px solid var(--border);
         border-radius: 24px;
         background: var(--surface);
+        position: relative;
+        padding: 24px;
+
+        .main__card-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 88px;
+            padding: 4px 12px;
+            background: var(--back);
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 1.67;
+            color: var(--gray-900);
+        }
+
+        .main__card-details {
+            border-radius: 24px;
+            padding: 24px;
+            background: var(--back);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+        }
+
+        .main__card-title {
+            margin-bottom: 12px;
+            
+            a {
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 1.17;
+                color: var(--gray-900);
+                text-decoration: none;
+            }
+        }
+
+        p {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.43;
+            color: var(--gray-500);
+        }
+
+        .main__card-info {
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.43;
+            color: var(--gray-500);
+            margin-top: 32px;
+
+            span {
+                font-weight: 400;
+            }
+        }
+
+        .main__card-img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            margin: 115px auto 120px;
+        }
+        
+    }
+
+    .blog__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-right: -24px;
+
+        @media(width <= 1200px) {
+            margin-right: -12px;
+        }
+
+        .blog__card {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+            position: relative;
+
+            @media(width <= 1200px) {
+                padding: 12px;
+            }
+
+
+            &:nth-child(odd) {
+                border-right: 1px solid var(--gray-100);
+            }
+
+            &:nth-child(n + 3) {
+                border-top: 1px solid var(--gray-100);
+            }
+
+            .post__card-preview {
+                position: relative;
+                overflow: hidden;
+                border: 1px solid var(--gray-150);
+                border-radius: 20px;
+                margin-bottom: 24px;
+
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            .post__card-category {
+                position: absolute;
+                top: 16px;
+                left: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 88px;
+                padding: 4px 12px;
+                height: 24px;
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 133%;
+                color: var(--gray-500);
+                background: var(--back);
+            }
+
+            .post__card-title {
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 1.33;
+                color: var(--gray-900);
+                margin-bottom: 24px;
+                text-decoration: none;
+            }
+
+            .post__card-details {
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 1.43;
+                color: var(--gray-500);
+
+                span {
+                    font-weight: 400;
+                }
+            }
+        }
     }
 }
