@@ -57,4 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 		}
 	});
+
+	const resourcesSwiper = new Swiper(".resources__swiper", {
+		slidesPerView: 'auto',
+		spaceBetween: 0,
+		breakpoints: {
+			576: {
+				slidesPerView: 2,
+			},
+			768: {
+				slidesPerView: 'auto',
+			},
+			1024: {
+				slidesPerView: 3,
+			},
+		}
+	});
 });
