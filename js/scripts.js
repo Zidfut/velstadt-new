@@ -73,4 +73,24 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 		}
 	});
+
+	const customerSwiper = new Swiper(".customer__swiper", {
+		slidesPerView: 'auto',
+		spaceBetween: 16,
+		breakpoints: {
+			576: {
+				slidesPerView: 2,
+			},
+			768: {
+				slidesPerView: 'auto',
+				spaceBetween: 16,
+			},
+			1024: {
+				slidesPerView: 3,
+			},
+			1200: {
+				spaceBetween: 24,
+			},
+		}
+	});
 });

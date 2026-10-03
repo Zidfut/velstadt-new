@@ -2421,6 +2421,18 @@ body {
             border-left: 1px solid var(--gray-100);
         }
 
+        &:first-child {
+            @media(width <= 576px) {
+                border-left: 1px solid var(--gray-100);
+            }
+        }
+
+        &:last-child {
+            @media(width <= 576px) {
+                border-right: 1px solid var(--gray-100);
+            }
+        }
+
         .resources__card-preview {
             display: flex;
             align-items: flex-end;
@@ -2485,5 +2497,79 @@ body {
                 margin-left: auto;  
             }
         }
+    }
+}
+
+.customer {
+    border-bottom: 1px solid var(--gray-100);
+
+    .customer__container {
+        padding-block: 24px;
+    }
+
+    .swiper-wrapper {
+        align-items: center;
+    }
+
+    .customer__card {
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 24px;
+        background: var(--surface);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 56px;
+        width: 380px;
+
+        @media(width <= 768px) {
+            width: 320px;
+        }
+
+        @media(width <= 576px) {
+            width: 280px;
+        }
+
+        .customer__card-quote {
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 1.4;
+            color: var(--gray-900);
+        }
+
+        .customer__card-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 8px;
+            
+            .customer__card-issue {
+                display: inline-block;
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 1.4;
+                color: var(--gray-900);
+            }
+
+            .customer__card-service {
+                display: inline-block;
+                font-family: var(--font-family);
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 1.33;
+                color: var(--gray-500);
+            }
+        }
+
+        .customer__card-footer {
+            width: 100%;
+            border-top: 1px dashed var(--border-icon);
+            padding-top: 32px;
+        }
+
     }
 }
