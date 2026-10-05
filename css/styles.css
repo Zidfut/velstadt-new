@@ -2041,6 +2041,10 @@ body {
         align-items: flex-start;
         gap: 8px;
 
+        @media(width <= 576px) {
+            flex-direction: row;
+        }
+
         p {
             font-family: var(--font-family);
             font-weight: 400;
@@ -3038,7 +3042,10 @@ body {
 
             @media(width <= 576px) {
                 padding-inline: 16px;
-                border-bottom: 1px solid var(--gray-100);
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid var(--gray-100);
+                }
             }
 
             &:nth-child(odd) {
@@ -3165,6 +3172,114 @@ body {
             font-size: 14px;
             line-height: 1.43;
             color: var(--gray-900);
+        }
+    }
+}
+
+.services {
+    border-bottom: 1px solid var(--gray-100);
+
+    .services__container {
+        padding-inline: 0;
+    }
+
+    .services__accardion {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        
+        .services__accardion-list {
+            position: relative;
+            border-right: 1px solid var(--gray-100);
+        }
+
+        .services__accardion-item {
+            overflow: hidden;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            &.active {
+
+                .services__accardion-content {
+                    height: auto;
+                    max-height: 1000px;
+                    visibility: visible;
+                }
+
+                .services__accardion-img {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            
+            .services__accardion-header {
+                padding: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 24px;
+                cursor: pointer;
+
+                .services__accardion-number {
+                    display: inline-block;
+                    font-family: var(--font-family);
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 1.33;
+                    text-align: center;
+                    color: var(--gray-500);
+                }
+
+                .services__accardion-title {
+                    font-family: var(--font-family);
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 1.4;
+                    color: var(--gray-900);
+                }
+            }
+
+            .services__accardion-content {
+                padding: 0 24px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 12px;
+                height: 0;
+                visibility: hidden;
+                transition: height .3s ease, max-height .3s ease, visibility .1s ease;
+
+                p, ul {
+                    font-family: var(--font-family);
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 1.43;
+                    color: var(--gray-500);
+                }
+
+                ul {
+                    padding-left: 20px;
+                }
+
+                a {
+                    margin-block: 24px;
+                }
+            }
+
+            .services__accardion-img {
+                width: calc(100% - 48px);
+                aspect-ratio: 582 / 484;
+                display: block;
+                position: absolute;
+                top: 24px;
+                left: calc(100% + 24px);
+                bottom: 24px;
+                opacity: 0;
+                visibility: hidden;
+            }
         }
     }
 }

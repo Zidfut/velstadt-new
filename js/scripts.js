@@ -93,4 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 		}
 	});
+
+	document.querySelectorAll('.services__accardion-header').forEach(header => {
+		header.addEventListener('click', () => {
+			const currentItem = header.closest('.services__accardion-item');
+
+			document.querySelectorAll('.services__accardion-item').forEach(item => {
+				item.classList.remove('active');
+			});
+
+			currentItem.classList.add('active');
+		});
+	});
 });
