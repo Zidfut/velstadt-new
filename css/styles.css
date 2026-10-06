@@ -3187,6 +3187,10 @@ body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
+        @media(width <= 768px) {
+            grid-template-columns: 1fr;
+        }
+
         
         .services__accardion-list {
             position: relative;
@@ -3195,16 +3199,18 @@ body {
 
         .services__accardion-item {
             overflow: hidden;
+            display: grid;
+            grid-template-rows: auto 0fr;
+            transition: grid-template-rows .3s ease;
 
             &:not(:last-child) {
                 border-bottom: 1px solid var(--gray-100);
             }
 
             &.active {
+                grid-template-rows: auto 1fr;
 
                 .services__accardion-content {
-                    height: auto;
-                    max-height: 1000px;
                     visibility: visible;
                 }
 
@@ -3215,12 +3221,22 @@ body {
             }
             
             .services__accardion-header {
-                padding: 22px;
+                padding: 22px 24px;
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
                 gap: 24px;
                 cursor: pointer;
+
+                @media(width <= 1024px) {
+                    padding: 18px 24px;
+                    gap: 16px;
+                }
+
+                @media(width <= 576px) {
+                    padding: 12px;
+                    gap: 12px;
+                }
 
                 .services__accardion-number {
                     display: inline-block;
@@ -3238,7 +3254,20 @@ body {
                     font-size: 20px;
                     line-height: 1.4;
                     color: var(--gray-900);
+
+                    @media(width <= 1024px) {
+                        font-size: 18px;
+                    }
+
+                    @media(width <= 576px) {
+                        font-size: 16px;
+                    }
                 }
+            }
+
+            .services__accardion-content-wrapper {
+                min-height: 0;
+                overflow: hidden;
             }
 
             .services__accardion-content {
@@ -3248,9 +3277,15 @@ body {
                 align-items: flex-start;
                 justify-content: flex-start;
                 gap: 12px;
-                height: 0;
                 visibility: hidden;
-                transition: height .3s ease, max-height .3s ease, visibility .1s ease;
+
+                @media(width <= 1024px) {
+                    gap: 8px;
+                }
+
+                @media(width <= 576px) {
+                    padding: 0 12px;
+                }
 
                 p, ul {
                     font-family: var(--font-family);
@@ -3266,6 +3301,10 @@ body {
 
                 a {
                     margin-block: 24px;
+
+                    @media(width <= 1024px) {
+                        margin-top: 16px;
+                    }
                 }
             }
 
@@ -3279,6 +3318,34 @@ body {
                 bottom: 24px;
                 opacity: 0;
                 visibility: hidden;
+
+                @media(width <= 1200px) {
+                    top: 16px;
+                    left: calc(100% + 14px);
+                    width: calc(100% - 36px);
+                }
+
+                @media(width <= 1024px) {
+                    width: calc(100% - 32px);
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                @media(width <= 768px) {
+                    position: static;
+                    transform: none;
+                    inset: initial;
+                    aspect-ratio: initial;
+                    margin: 0 auto 24px;
+                    width: auto;
+                    max-width: calc(100% - 24px);
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                @media(width <= 576px) {
+                    margin: 0 auto 16px;
+                }
             }
         }
     }
