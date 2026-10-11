@@ -4164,6 +4164,11 @@ body {
     .hero__services-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+
+        @media(width <= 1024px) {
+            grid-template-columns: 1fr;
+            padding: 0;
+        }
     }
 
     .hero__services-left {
@@ -4174,12 +4179,56 @@ body {
         gap: 32px;
         padding: 96px var(--padding) 64px 0;
         border-right: 1px solid var(--gray-100);
+
+        @media(width <= 1024px) {
+            padding: 64px var(--padding);
+            border-right: none;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        @media(width <= 768px) {
+            padding: 32px var(--padding);
+        }
+    }
+
+    .hero__services-right {
+        padding: 24px;
+
+        @media(width <= 1024px) {
+            padding: var(--padding);
+        }
+
+        .hero__services-preview {
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px 24px;
+            background: var(--surface);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media(width <= 768px) {
+                padding: var(--padding);
+            }
+
+            img {
+                display: block;
+                width: auto;
+                max-width: 100%;
+            }
+        }
     }
 
     .hero__services-buttons {
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        flex-wrap: wrap;
         gap: 12px;
+
+        .btn {
+            flex: 1 1 160px;
+        }
     }
 }
