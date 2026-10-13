@@ -390,7 +390,7 @@ body {
     }
 
     .section__header-left {
-        max-width: 440px;
+        max-width: 470px;
     }
 
     .section__header-right {
@@ -3147,6 +3147,49 @@ body {
         @media(width <= 576px) {
             grid-template-columns: 1fr;
         }
+
+        &.about__container-transparent {
+            padding: 0;
+            gap: 0;
+
+            .about__card {
+                border: none;
+                border-radius: 0;
+                background-color: transparent;
+
+                &:not(:last-child) {
+                    border-right: 1px solid var(--gray-100);
+
+                    @media(width <= 1024px) {
+                        border-right: none;
+                    }
+
+                    @media(width <= 576px) {
+                        border-bottom: 1px solid var(--gray-100);
+                    }
+                }
+
+                &:nth-child(odd) {
+                    @media(width <= 1024px) {
+                        border-right: 1px solid var(--gray-100);
+                    }
+
+                    @media(width <= 576px) {
+                        border-right: none;
+                    }
+                }
+
+                &:nth-child(n + 3) {
+                    @media(width <= 1024px) {
+                        border-top: 1px solid var(--gray-100);
+                    }
+
+                    @media(width <= 576px) {
+                        border-top: none;
+                    }
+                }
+            }
+        }
     }
 
     .about__card {
@@ -4241,16 +4284,23 @@ body {
         padding-inline: 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+
+        @media(width <= 1024px) {
+            padding-inline: var(--padding);
+            grid-template-columns: 1fr;
+        }
     
         @media(width <= 768px) {
-                grid-template-columns: 1fr;
-            }
         }
         
         .challenge__list {
             position: relative;
             border-right: 1px solid var(--gray-100);
             counter-reset: challenge-item;
+
+            @media(width <= 1024px) {
+                border-right: none;
+            }
         }
 
         .challenge__item {
@@ -4261,6 +4311,37 @@ body {
 
             &:not(:last-child) {
                 border-bottom: 1px solid var(--gray-100);
+
+                @media(width <= 1024px) {
+                    border-bottom: none;
+                }
+            }
+
+            @media(width <= 1024px) {
+                position: relative;
+            }
+
+            &::after {
+                @media(width <= 1024px) {
+                    content: '';
+                    display: block;
+                    height: 1px;
+                    background-color: var(--gray-100);
+                    position: absolute;
+                    top: 100%;
+                    left: -14px;
+                    right: -14px;
+                }
+
+                @media(width <= 768px) {
+                    left: -10px;
+                    right: -10px;
+                }
+
+                @media(width <= 576px) {
+                    left: -12px;
+                    right: -12px;
+                }
             }
             
             .challenge__header {
@@ -4272,10 +4353,12 @@ body {
 
                 @media(width <= 1024px) {
                     gap: 16px;
+                    padding: 24px 0 0;
+
                 }
 
                 @media(width <= 576px) {
-                    padding: 12px;
+                    padding: 16px 0 0;
                     gap: 12px;
                 }
 
@@ -4321,11 +4404,11 @@ body {
 
                 @media(width <= 1024px) {
                     gap: 8px;
-                    padding: 0 60px 24px;
+                    padding: 0 36px 24px;
                 }
 
                 @media(width <= 576px) {
-                    padding: 0 12px;
+                    padding: 0 32px 16px;
                 }
 
                 p, ul {
@@ -4393,5 +4476,247 @@ body {
                 }
             }
         }
-    
+
+        .challenge__preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--padding);
+
+            @media(width <= 1200px) {
+                padding: 14px var(--padding) 14px 14px;
+            }
+
+            @media(width <= 768px) {
+                padding: var(--padding) 0;
+            }
+
+            .challenge__preview-img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid var(--border);
+                border-radius: 24px;
+                padding: 24px;
+                background: var(--surface);
+                height: 100%;
+
+                @media(width <= 768px) {
+                    padding: 16px;
+                }
+
+                img {
+                    display: block;
+                    width: auto;
+                    max-width: 100%;
+                    border-radius: 24px;
+
+                    @media(width <= 768px) {
+                        border-radius: 16px;
+                    }
+                }
+            }
+        }
+    }
 }
+
+.testing {
+    border-bottom: 1px solid var(--gray-100);
+
+    .testing__container {
+        display: grid;
+        grid-template-columns: 1fr 1.55fr;
+        padding: 0;
+
+        @media(width <= 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .testing__main {
+        padding: var(--padding);
+        border-right: 1px solid var(--gray-100);
+
+        @media(width <= 1200px) {
+            padding: 14px 14px 14px var(--padding);
+        }
+
+        @media(width <= 768px) {
+            border-right: none;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .testing__preview {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 12px;
+            padding: var(--padding);
+            border-radius: 24px;
+            background-image: url('../images/advantages-card-bg.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            aspect-ratio: 500 / 548;
+
+            @media(width <= 1024px) {
+                aspect-ratio: initial;
+                height: 100%;
+                min-height: 320px;
+            }
+            
+
+            .testing__preview-subtitle {
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 1.43;
+                color: var(--white);
+                margin-bottom: auto;
+
+                @media(width <= 1024px) {
+                    
+                }
+
+                @media(width <= 768px) {
+                    
+                }
+            }
+
+            .testing__preview-title {
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 1.33;
+                color: var(--white);
+                
+                @media(width <= 768px) {
+                    font-size: 32px;
+                }
+
+                @media(width <= 576px) {
+                    font-size: 18px;
+                }
+            }
+
+            .testing__preview-description {
+                font-family: var(--font-family);
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1.43;
+                color: var(--white);
+
+                @media(width <= 1024px) {
+                    font-size: 12px;
+                }
+
+                @media(width <= 768x) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .testing__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media(width <= 576px) {
+            grid-template-columns: 1fr;
+        }
+
+        .testing__card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 12px;
+            padding: var(--padding);
+
+            @media(width <= 1200px) {
+                padding: 14px;
+            }
+
+            @media(width <= 1024px) {
+                gap: 8px;
+            }
+
+            @media(width <= 768px) {
+                padding-inline: 24px;
+            }
+
+            @media(width <= 576px) {
+                padding-inline: 16px;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid var(--gray-100);
+                }
+            }
+
+            &:nth-child(odd) {
+                border-right: 1px solid var(--gray-100);
+
+                @media(width <= 576px) {
+                    border-right: none;
+                }
+            }
+
+            &:nth-child(n + 3) {
+                border-top: 1px solid var(--gray-100);
+
+                @media(width <= 576px) {
+                    border-top: none;
+                }
+            }
+
+            .testing__card-subtitle {
+                display: inline-block;
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 1.43;
+                color: var(--gray-500);
+                margin-bottom: auto;
+
+                @media(width <= 1024px) {
+                    font-size: 12px;
+                }
+            }
+
+            .testing__card-title {
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 1.4;
+                color: var(--gray-900);
+
+                @media(width <= 1024px) {
+                    font-size: 16px;
+                }
+
+                @media(width <= 768px) {
+                    font-size: 18px;
+                }
+            }
+
+            .testing__card-description {
+                display: inline-block;
+                font-family: var(--font-family);
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1.43;
+                color: var(--gray-500);
+
+                @media(width <= 1024px) {
+                    font-size: 12px;
+                }
+
+                @media(width <= 768px) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
