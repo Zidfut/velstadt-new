@@ -93,6 +93,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 		}
 	});
+	
+	const timelineSwiper = new Swiper(".timeline__swiper", {
+		slidesPerView: 'auto',
+		spaceBetween: 16,
+		breakpoints: {
+			576: {
+				slidesPerView: 2,
+			},
+			768: {
+				slidesPerView: 'auto',
+				spaceBetween: 16,
+			},
+			1024: {
+				slidesPerView: 5,
+			},
+			1200: {
+				slidesPerView: 5,
+				spaceBetween: 0,
+			},
+		}
+	});
 
 	document.querySelectorAll('.services__accardion-header').forEach(header => {
 		header.addEventListener('click', () => {
