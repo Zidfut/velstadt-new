@@ -4870,6 +4870,10 @@ body {
 
     .timeline__container {
         padding-block: 32px;
+
+        @media(width <= 1200px) {
+            padding-inline: 10px;
+        }
     }
 
     .swiper-wrapper {
@@ -4879,6 +4883,7 @@ body {
         padding-inline: 12px;
         counter-increment: timeline-item;
         position: relative;
+        width: 248px;
 
         &::after {
             content: '';
@@ -4905,6 +4910,17 @@ body {
             &::after {
                 width: 50%;
                 right: 0;
+            }
+
+            .timeline__card-header {
+                .timeline__card-number {
+                    box-shadow: 0 4px 16px 0 rgba(109, 74, 255, 0.25);
+                    background: var(--primary-500);
+
+                    &::after {
+                        color: var(--white);
+                    }
+                }
             }
         }
 

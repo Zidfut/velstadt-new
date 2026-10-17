@@ -96,21 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	const timelineSwiper = new Swiper(".timeline__swiper", {
 		slidesPerView: 'auto',
-		spaceBetween: 16,
+		spaceBetween: 0,
 		breakpoints: {
-			576: {
-				slidesPerView: 2,
-			},
-			768: {
-				slidesPerView: 'auto',
-				spaceBetween: 16,
-			},
-			1024: {
-				slidesPerView: 5,
-			},
 			1200: {
 				slidesPerView: 5,
-				spaceBetween: 0,
 			},
 		}
 	});
