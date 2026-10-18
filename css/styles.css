@@ -5028,3 +5028,232 @@ body {
         }
     }
 }
+
+.faq {
+    border-bottom: 1px solid var(--gray-100);
+
+    .faq__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-inline: 0;
+
+        @media(width <= 1024px) {
+            grid-template-columns: 1fr;
+        }
+
+        .faq__left {
+            border-right: 1px solid var(--gray-100);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 16px;
+            padding: 96px var(--padding);
+
+            @media(width <= 1200px) {
+                padding: 64px var(--padding);
+            }
+
+            @media(width <= 1024px) {
+                border-right: none;
+                border-bottom: 1px solid var(--gray-100);
+                padding: 44px var(--padding);
+            }
+
+            .link {
+                margin-top: 64px;
+
+                @media(width <= 1200px) {
+                    margin-top: 48px;
+                }
+
+                @media(width <= 1024px) {
+                    margin-top: 32px;
+                }
+            }
+        }
+    }
+
+    .section__subtitle {
+        margin-bottom: 0;
+    }
+
+    .services__accardion {
+        
+        .services__accardion-list {
+            position: relative;
+            border-right: 1px solid var(--gray-100);
+        }
+
+        .services__accardion-item {
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: auto 0fr;
+            transition: grid-template-rows .3s ease;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            &.active {
+                grid-template-rows: auto 1fr;
+
+                .services__accardion-header {
+                    &::after {
+                        content: none;
+                    }
+                }
+
+                .services__accardion-content {
+                    visibility: visible;
+                }
+
+                .services__accardion-img {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            
+            .services__accardion-header {
+                padding: 22px 24px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 24px;
+                cursor: pointer;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    flex-shrink: 0;
+                    background-image: url('../images/icons/plus.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    margin-left: auto;
+                }
+
+                @media(width <= 1024px) {
+                    padding: 18px 24px;
+                    gap: 16px;
+                }
+
+                @media(width <= 576px) {
+                    padding: 12px;
+                    gap: 12px;
+                }
+
+                .services__accardion-number {
+                    display: inline-block;
+                    font-family: var(--font-family);
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 1.33;
+                    text-align: center;
+                    color: var(--gray-500);
+                }
+
+                .services__accardion-title {
+                    font-family: var(--font-family);
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 1.4;
+                    color: var(--gray-900);
+
+                    @media(width <= 1024px) {
+                        font-size: 18px;
+                    }
+
+                    @media(width <= 576px) {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .services__accardion-content-wrapper {
+                min-height: 0;
+                overflow: hidden;
+            }
+
+            .services__accardion-content {
+                padding: 0 24px 24px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 12px;
+                visibility: hidden;
+
+                @media(width <= 1024px) {
+                    gap: 8px;
+                }
+
+                @media(width <= 576px) {
+                    padding: 0 12px 24px;
+                }
+
+                p, ul {
+                    font-family: var(--font-family);
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 1.43;
+                    color: var(--gray-500);
+                }
+
+                ul {
+                    padding-left: 20px;
+                }
+
+                a {
+                    margin-block: 24px;
+
+                    @media(width <= 1024px) {
+                        margin-top: 16px;
+                    }
+                }
+            }
+
+            .services__accardion-img {
+                width: calc(100% - 48px);
+                aspect-ratio: 582 / 484;
+                display: block;
+                position: absolute;
+                top: 24px;
+                left: calc(100% + 24px);
+                bottom: 24px;
+                opacity: 0;
+                visibility: hidden;
+
+                @media(width <= 1200px) {
+                    top: 16px;
+                    left: calc(100% + 14px);
+                    width: calc(100% - 36px);
+                }
+
+                @media(width <= 1024px) {
+                    width: calc(100% - 32px);
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                @media(width <= 768px) {
+                    position: static;
+                    transform: none;
+                    inset: initial;
+                    aspect-ratio: initial;
+                    margin: 0 auto 24px;
+                    width: auto;
+                    max-width: calc(100% - 24px);
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                @media(width <= 576px) {
+                    margin: 0 auto 16px;
+                }
+            }
+        }
+    }
+}
