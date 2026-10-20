@@ -5407,11 +5407,6 @@ body {
 
     .page__sidebar {
         padding: var(--padding);
-        padding-block: 128px 32px;
-
-        @media(width <= 1200px) {
-            padding-block: 96px 24px;
-        }
 
         @media(width <= 1024px) {
            display: none;
