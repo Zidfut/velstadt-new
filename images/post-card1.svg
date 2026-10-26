@@ -1,0 +1,10 @@
+<svg width="321" height="192" viewBox="0 0 321 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="321" height="192" fill="#F0EFF8"/>
+<circle cx="134" cy="96" r="39" fill="#FDFCFC"/>
+<circle cx="199" cy="96" r="56" fill="#FDFCFC" stroke="#11101F"/>
+<circle cx="95" cy="97" r="28" fill="#FDFCFC" stroke="#11101F"/>
+<circle cx="134" cy="96" r="39" stroke="#C1BBCE" stroke-linecap="round" stroke-dasharray="4 4"/>
+<path d="M68 97L70.0217 97M254 97L251.978 97M74.0652 97L78.1087 97M82.1522 97L86.1957 97M90.2391 97L94.2826 97M98.3261 97L102.37 97M106.413 97L110.457 97M114.5 97L118.543 97M122.587 97L126.63 97M130.674 97L134.717 97M138.761 97L142.804 97M146.848 97L150.891 97M154.935 97L158.978 97M163.022 97L167.065 97M171.109 97L175.152 97M179.196 97L183.239 97M187.283 97L191.326 97M195.37 97L199.413 97M203.457 97L207.5 97M211.543 97L215.587 97M219.63 97L223.674 97M227.717 97L231.761 97M235.804 97L239.848 97M243.891 97L247.935 97" stroke-linecap="round" stroke="#C1BBCE"/>
+<path d="M199 93V101" stroke-linecap="round" stroke="#6330F7"/>
+<path d="M203 97L195 97" stroke-linecap="round" stroke="#6330F7"/>
+</svg>
