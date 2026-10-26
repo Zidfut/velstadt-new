@@ -197,4 +197,60 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	const mediaQuery = window.matchMedia('(min-width: 1025px)');
+
+	document.querySelectorAll('.dropdown').forEach((dropdown) => {
+		const tabs = dropdown.querySelectorAll('.dropdown__tabs-list .dropdown__link');
+		const navs = dropdown.querySelectorAll('.dropdown__nav');
+
+		const activateTab = (index) => {
+			tabs.forEach((item, i) => {
+				item.classList.toggle('active', i === index);
+			});
+
+			navs.forEach((nav, i) => {
+				nav.classList.toggle('active', i === index);
+			});
+		};
+
+		tabs.forEach((tab, index) => {
+			const handleMouseEnter = () => {
+				if (window.matchMedia('(hover: hover)').matches) {
+					activateTab(index);
+				}
+			};
+
+			const handleClick = () => {
+				activateTab(index);
+			};
+
+			tab.addEventListener('mouseenter', handleMouseEnter);
+			tab.addEventListener('click', handleClick);
+
+			tab._dropdownHandlers = {
+				handleMouseEnter,
+				handleClick,
+			};
+		});
+
+		const updateDropdown = () => {
+			tabs.forEach((tab) => {
+				const handlers = tab._dropdownHandlers;
+
+				if (mediaQuery.matches) {
+					tab.addEventListener('mouseenter', handlers.handleMouseEnter);
+					tab.addEventListener('click', handlers.handleClick);
+				} else {
+					tab.removeEventListener('mouseenter', handlers.handleMouseEnter);
+					tab.removeEventListener('click', handlers.handleClick);
+				}
+			});
+		};
+
+		// Прибираємо початкові обробники, якщо ширина <= 768px
+		updateDropdown();
+
+		mediaQuery.addEventListener('change', updateDropdown);
+	});
+
 });
