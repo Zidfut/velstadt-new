@@ -5941,6 +5941,14 @@ body {
             position: relative;
             overflow: hidden;
             z-index: 1;
+
+            @media(width <= 768px) {
+                padding: 24px;
+            }
+
+            @media(width <= 576px) {
+                padding: 16px;
+            }
     
             &::before {
                 content: '';
@@ -6118,14 +6126,17 @@ body {
     .feedback__container {
         padding-bottom: 32px;
         overflow: hidden;
-
+        
+        @media(width <= 1280px) {
+            /* width: calc(100% - 20px); */
+        }
     }
     
     .feedback__swiper {
         overflow: visible;
 
         .swiper-wrapper {
-
+            align-items: stretch;
         }
     }
 
@@ -6133,6 +6144,7 @@ body {
         border: 1px solid var(--gray-100);
         border-radius: 16px;
         padding: 24px;
+        height: initial;
         min-height: 278px;
         display: flex;
         flex-direction: column;
@@ -6216,6 +6228,7 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-shrink: 0;
                 padding: 4px;
                 width: 48px;
                 height: 48px;

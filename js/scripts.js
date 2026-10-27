@@ -106,15 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const feedbackSwiper = new Swiper(".feedback__swiper", {
 		slidesPerView: 1,
-		spaceBetween: 32,
+		spaceBetween: 16,
 		loop: true,
 		navigation: {
 			nextEl: '.feedback__arrows-next',
 			prevEl: '.feedback__arrows-prev',
 		},
 		breakpoints: {
+			576: {
+				slidesPerView: 2,
+			},
+			1024: {
+				slidesPerView: 3,
+				spaceBetween: 24,
+			},
 			1200: {
 				slidesPerView: 3,
+				spaceBetween: 32,
 			},
 		}
 	});
