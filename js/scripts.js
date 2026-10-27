@@ -104,6 +104,21 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
+	const feedbackSwiper = new Swiper(".feedback__swiper", {
+		slidesPerView: 1,
+		spaceBetween: 32,
+		loop: true,
+		navigation: {
+			nextEl: '.feedback__arrows-next',
+			prevEl: '.feedback__arrows-prev',
+		},
+		breakpoints: {
+			1200: {
+				slidesPerView: 3,
+			},
+		}
+	});
+
 	document.querySelectorAll('.services__accardion').forEach(accordion => {
 		accordion.querySelectorAll('.services__accardion-header').forEach(header => {
 			header.addEventListener('click', () => {
