@@ -276,4 +276,57 @@ document.addEventListener('DOMContentLoaded', () => {
 		mediaQuery.addEventListener('change', updateDropdown);
 	});
 
+	const slider = document.querySelector('.blog__filter-category');
+
+	if (slider) {
+		let isDown = false;
+		let startX = 0;
+		let scrollLeft = 0;
+		let isDragging = false;
+
+		slider.addEventListener('mousedown', (e) => {
+			if (e.button !== 0) return;
+
+			isDown = true;
+			isDragging = false;
+
+			startX = e.pageX;
+			scrollLeft = slider.scrollLeft;
+		});
+
+		slider.addEventListener('mousemove', (e) => {
+			if (!isDown) return;
+
+			const walk = e.pageX - startX;
+
+			if (Math.abs(walk) > 5) {
+				isDragging = true;
+				slider.classList.add('is-dragging');
+				slider.scrollLeft = scrollLeft - walk;
+			}
+		});
+
+		const stopDragging = () => {
+			isDown = false;
+			slider.classList.remove('is-dragging');
+
+			if (isDragging) {
+				setTimeout(() => {
+					isDragging = false;
+				}, 0);
+			}
+		};
+
+		slider.addEventListener('mouseup', stopDragging);
+		slider.addEventListener('mouseleave', stopDragging);
+
+		slider.addEventListener('click', (e) => {
+			if (isDragging) {
+				e.preventDefault();
+				e.stopPropagation();
+				isDragging = false;
+			}
+		}, true);
+	}
+
 });
