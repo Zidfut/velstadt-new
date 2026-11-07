@@ -183,10 +183,14 @@ body {
 
 .container {
     display: block;
-    width: 100%;
+    width: calc(100% - 20px);
     max-width: 1280px;
     margin: 0 auto;
     padding-inline: var(--padding);
+
+    @media(width <= 576px) {
+        width: calc(100% - 12px);
+    }
 }
 
 .no-scroll {
@@ -326,53 +330,12 @@ body {
 
 .section__lines {
     position: relative;
+    border-left: 1px solid var(--gray-100);
+    border-right: 1px solid var(--gray-100);
         
-    &::before,
-    &::after {
-        content: '';
-        display: block;
-        height: 100%;
-        width: 1px;
-        background-color: var(--gray-100);
-        position: absolute;
-        top: 0;
-    }
-    &::before {
-        left: 0;
-
-        @media(width <= 1200px) {
-            left: 10px;
-        }
-
-        @media(width <= 768px) {
-            left: 6px;
-        }
-
-        @media(width <= 576px) {
-            content: none;
-        }
-    }
-    &::after {
-        right: 0;
-
-        @media(width <= 1200px) {
-            right: 10px;
-        }
-
-        @media(width <= 768px) {
-            right: 6px;
-        }
-
-        @media(width <= 576px) {
-            content: none;
-        }
-    }
 
     &.section__lines-white {
-        &::before,
-        &::after {
-            background-color: rgba(255, 255, 255, .1);
-        }
+        border-color: rgba(255, 255, 255, .1);
     }
 }
 
@@ -2356,6 +2319,10 @@ body {
             margin: 0 auto;
         }
     }
+
+    & + .footer {
+        border-top: 0;
+    }
 }
 
 .custom__form {
@@ -2721,6 +2688,10 @@ body {
 
             &:nth-child(odd) {
                 border-right: 1px solid var(--gray-100);
+                
+                @media(width <= 576px) {
+                    border-right: 0;
+                }
             }
 
             &:nth-child(n + 3) {
@@ -3941,18 +3912,6 @@ body {
 
     .phantom__block {
 
-        .phantom__tabs-wrap {
-            padding-inline: 10px;
-
-            @media(width <= 768px) {
-                padding-inline: 6px;
-            }
-
-            @media(width <= 576px) {
-                padding-inline: 0;
-            }
-        }
-
         .phantom__tabs {
             overflow-x: auto;
             scrollbar-width: none;
@@ -4084,6 +4043,7 @@ body {
                     @media(width <= 768px) {
                         padding: 24px var(--padding) 0;
                         gap: 12px;
+                        border-right: 0;
                     }
 
                     @media(width <= 576px) {
@@ -4849,13 +4809,13 @@ body {
                     background-color: var(--gray-100);
                     position: absolute;
                     top: 100%;
-                    left: -14px;
-                    right: -14px;
+                    left: -24px;
+                    right: -24px;
                 }
 
                 @media(width <= 768px) {
-                    left: -10px;
-                    right: -10px;
+                    left: -16px;
+                    right: -16px;
                 }
 
                 @media(width <= 576px) {
@@ -5350,14 +5310,8 @@ body {
     counter-reset: timeline-item;
 
     .timeline__container {
-        padding-block: 32px;
-
-        @media(width <= 1200px) {
-            padding-inline: 10px;
-        }
-    }
-
-    .swiper-wrapper {
+        padding: 32px 0;
+        
     }
 
     .timeline__card {
@@ -5564,7 +5518,6 @@ body {
         
         .services__accardion-list {
             position: relative;
-            border-right: 1px solid var(--gray-100);
         }
 
         .services__accardion-item {
@@ -6158,26 +6111,6 @@ body {
     .feedback__container {
         padding-bottom: 32px;
         overflow: hidden;
-        
-        @media(width <= 1280px) {
-            width: calc(100% - 20px);
-
-            &::before {
-                left: 0;
-            }
-
-            &::after {
-                right: 0;
-            }
-        }
-
-        @media(width <= 768px) {
-            width: calc(100% - 12px);
-        }
-
-        @media(width <= 576px) {
-            width: 100%;
-        }
     }
     
     .feedback__swiper {
@@ -6719,7 +6652,7 @@ body {
 
         .blog__grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             padding-block: var(--padding);
             gap: 24px;
 
@@ -6949,18 +6882,6 @@ body {
 
         .blog__filter-category-wrap {
             padding-block: 20px;
-
-            @media(width <= 1200px) {
-                padding: 20px 12px;
-            }
-
-            @media(width <= 768px) {
-                padding: 20px 8px;
-            }
-
-            @media(width <= 576px) {
-                padding: 20px 0px;
-            }
         }
 
         .blog__filter-category {
@@ -7031,7 +6952,6 @@ body {
             }
         }
     }
-
 
 }
 
@@ -7109,7 +7029,7 @@ body {
     .section__header {
 
         .section__header-container {
-            align-items: center;
+            align-items: stretch;
             padding: 0;
         }
 
@@ -7125,6 +7045,9 @@ body {
         }
 
         .section__header-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
             min-width: 460px;
             padding: 16px;
