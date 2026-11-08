@@ -470,24 +470,65 @@
                     <div class="post__block-header">
                         <span class="post__block-subtitle">TL;DR</span>
                         <h3 class="h3 post__block-title">Key Takeaways</h3>
-                        <div class="keys__grid">
-                            <div class="keys__card">
-                                <span class="keys__card-icon">
-                                    <img src="images/icons/vulnerability.svg" alt="">
-                                </span>
+                    </div>
+                    <div class="keys__grid">
+                        <div class="keys__card">
+                            <span class="keys__card-icon">
+                                <img src="images/icons/vulnerability.svg" alt="">
+                            </span>
+                            <div class="keys__card-col">
                                 <h4 class="h4 keys__card-title">Vulnerability</h4>
                                 <p>The production backend accepted one universal static OTP for every customer account.</p>
                             </div>
-                            <div class="keys__card">
-                                <span class="keys__card-icon">
-                                    <img src="images/icons/mail.svg" alt="">
-                                </span>
+                        </div>
+                        <div class="keys__card">
+                            <span class="keys__card-icon">
+                                <img src="images/icons/mail.svg" alt="">
+                            </span>
+                            <div class="keys__card-col">
                                 <h4 class="h4 keys__card-title">Attack requirement</h4>
                                 <p>An attacker needed only a registered user’s email address to trigger the authentication bypass successfully.</p>
                             </div>
                         </div>
+                        <div class="keys__card">
+                            <span class="keys__card-icon">
+                                <img src="images/icons/userx.svg" alt="">
+                            </span>
+                            <div class="keys__card-col">
+                                <h4 class="h4 keys__card-title">Victim interaction</h4>
+                                <p>The attack required no mailbox access, password, active session, legitimate OTP, or interaction from the victim.</p>
+                            </div>
+                        </div>
+                        <div class="keys__card">
+                            <span class="keys__card-icon">
+                                <img src="images/icons/key.svg" alt="">
+                            </span>
+                            <div class="keys__card-col">
+                                <h4 class="h4 keys__card-title">Result</h4>
+                                <p>The authentication bypass issued valid access and refresh tokens directly to the unauthenticated attacker.</p>
+                            </div>
+                        </div>
+                        <div class="keys__card">
+                            <span class="keys__card-icon">
+                                <img src="images/icons/shield.svg" alt="">
+                            </span>
+                            <div class="keys__card-col">
+                                <h4 class="h4 keys__card-title">Impact</h4>
+                                <p>The attacker gained full account control with every permission assigned to the compromised registered user.</p>
+                            </div>
+                        </div>
+                        <div class="keys__card">
+                            <span class="keys__card-icon danger">
+                                <img src="images/icons/atention.svg" alt="">
+                            </span>
+                            <div class="keys__card-col">
+                                <h4 class="h4 keys__card-title">Risk level · Critical</h4>
+                                <p>Any registered customer account could be taken over without authentication by using the universal static OTP.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <h2>1. Information collected</h2>
                 <p>This website uses Cloudflare Web Analytics to understand aggregate website usage and performance. It does not use advertising pixels or non-essential cookies.</p>
                 <p>If you send a message through the contact form, Specia1ne collects the information you provide:</p>
