@@ -432,7 +432,7 @@
                 </ul>
             </div>
         </div>
-        <div class="section__header">
+        <!-- <div class="section__header">
             <div class="container section__header-container section__lines">
                 <div class="section__header-left">
                     <h2 class="h3 section__subtitle">Blog component library</h2>
@@ -460,12 +460,13 @@
                     <img src="images/post-preview.svg" alt="" class="post__img">
                 </div>
             </div>
-            <!-- <div class="container section__header-container section__header-record section__lines">
+            <div class="container section__header-container section__header-record section__lines">
 
-            </div> -->
-        </div>
+            </div>
+        </div> -->
         <div class="container page__container section__lines">
-            <div class="post__content page__content">
+            <div class="post__content">
+
                 <div class="post__block keys">
                     <div class="post__block-header">
                         <span class="post__block-subtitle">TL;DR</span>
@@ -528,6 +529,156 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="post__block details">
+                    <div class="details__header">
+                        <h3 class="h3 details__header-label">Technical details</h3>
+                    </div>
+                    <div class="details__item">
+                        <div class="details-item-header">
+                            <h4 class="h4 details__item-label">Primary security classification</h4>
+                        </div>
+                        <div class="details__item-content">
+                            <a href="#">OWASP Top 10:2025 – A07: Authentication FailuresCWE-287: Improper Authentication</a>
+                        </div>
+                    </div>
+                    <div class="details__item">
+                        <div class="details-item-header">
+                            <h4 class="h4 details__item-label">Contributing weakness</h4>
+                        </div>
+                        <div class="details__item-content">
+                            <p>A hardcoded or otherwise static authentication value in production may also be relevant to <a href="#">CWE-798: Use of Hard-coded Credentials</a>, depending on the underlying implementation.</p>
+                        </div>
+                    </div>
+                    <div class="details__item">
+                        <div class="details-item-header">
+                            <h4 class="h4 details__item-label">Possible root cause</h4>
+                        </div>
+                        <div class="details__item-content">
+                            <p>Development or testing logic, environment configuration, or another implementation issue may have caused the static verification value to remain available in the production authentication flow.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post__block points">
+                    <div class="points__grid">
+                        <div class="points__card">
+                            <span class="points__card-icon">
+                                <img src="images/icons/lightning.svg" alt="">
+                            </span>
+                            <h3 class="h3 points__card-title">Identity controls reviewed</h3>
+                            <p>Privileged and dormant accounts are included.</p>
+                        </div>
+                        <div class="points__card">
+                            <span class="points__card-icon">
+                                <img src="images/icons/lightning.svg" alt="">
+                            </span>
+                            <h3 class="h3 points__card-title">Recovery paths tested</h3>
+                            <p>Backups and dependencies have named owners.</p>
+                        </div>
+                        <div class="points__card">
+                            <span class="points__card-icon">
+                                <img src="images/icons/lightning.svg" alt="">
+                            </span>
+                            <h3 class="h3 points__card-title">External exposure monitored</h3>
+                            <p>Credentials, domains, and public-facing assets are covered.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post__block action__rows">
+                    <div class="action__rows-item">
+                        <div class="action__rows-header">
+                            <span class="action__rows-number"></span>
+                            <h3 class="h3 action__rows-title">Validate the intelligence requirement.</h3>
+                        </div>
+                        <div class="action__rows-content">
+                            <p>Define the decision the intelligence should support, which teams will act on it, and what evidence they need before collecting additional data.</p>
+                        </div>
+                    </div>
+                    <div class="action__rows-item">
+                        <div class="action__rows-header">
+                            <span class="action__rows-number"></span>
+                            <h3 class="h3 action__rows-title">Connect the signal to business context.</h3>
+                        </div>
+                        <div class="action__rows-content">
+                            <p>Map each signal to relevant identities, assets, suppliers, and operational dependencies so isolated observations become clear business risks.</p>
+                        </div>
+                    </div>
+                    <div class="action__rows-item">
+                        <div class="action__rows-header">
+                            <span class="action__rows-number"></span>
+                            <h3 class="h3 action__rows-title">Measure the action taken.</h3>
+                        </div>
+                        <div class="action__rows-content">
+                            <p>Track the time from detection to validation, ownership, containment, and risk reduction, then use the outcome to improve future response decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="post__block quote">
+                    <p>“Cyber threat intelligence can improve prioritization by connecting external victimology, adversary activity, infrastructure, vulnerabilities, malware, TTPs, sectors, and geography with an organization’s internal telemetry and risk profile.”</p>
+                    <div class="quote__author">
+                        <img src="images/post-author.png" alt="Daniel Mercer" class="quote__author-img">
+                        <div class="quote__author-col">
+                            <h3 class="h3 quote__author-name">Daniel Mercer</h3>
+                            <span class="quote__author-position ">Head of Cybersecurity, Velstast</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post__block note note--info">
+                    <span class="note__icon"></span>
+                    <div class="note__content">
+                        <h3 class="h3 note__title">Analyst note</h3>
+                        <p>Observed records reflect available sources and should not be treated as a complete census of incidents.</p>
+                    </div>
+                </div>
+                <div class="post__block note note--alert">
+                    <span class="note__icon"></span>
+                    <div class="note__content">
+                        <h3 class="h3 note__title">Important limitation</h3>
+                        <p>A threat actor claim does not automatically constitute an independently verified breach. Validate the available evidence and affected assets before drawing conclusions.</p>
+                    </div>
+                </div>
+                <div class="post__block note note--success">
+                    <span class="note__icon"></span>
+                    <div class="note__content">
+                        <h3 class="h3 note__title">Key takeaway</h3>
+                        <p>Prioritize intelligence that changes ownership, clarifies urgency, or leads to a concrete response action across security and business teams.</p>
+                    </div>
+                </div>
+
+                <div class="post__block details">
+                    <div class="details__header">
+                        <h3 class="h3 details__header-label">Key terminology</h3>
+                    </div>
+                    <div class="details__item">
+                        <div class="details-item-header">
+                            <h4 class="h4 details__item-label">Victim record</h4>
+                        </div>
+                        <div class="details__item-content">
+                            <p>A normalized record connected to a public claim, disclosure, or observed extortion activity.</p>
+                        </div>
+                    </div>
+                    <div class="details__item">
+                        <div class="details-item-header">
+                            <h4 class="h4 details__item-label">Indicator</h4>
+                        </div>
+                        <div class="details__item-content">
+                            <p>A technical artifact that may support detection, blocking, enrichment, or investigation.</p>
+                        </div>
+                    </div>
+                    <div class="details__item">
+                        <div class="details-item-header">
+                            <h4 class="h4 details__item-label">TTP</h4>
+                        </div>
+                        <div class="details__item-content">
+                            <p>An adversary tactic, technique, or procedure describing how activity is performed.</p>
+                        </div>
+                    </div>
+                </div>
+
                 
                 <h2>1. Information collected</h2>
                 <p>This website uses Cloudflare Web Analytics to understand aggregate website usage and performance. It does not use advertising pixels or non-essential cookies.</p>
@@ -538,7 +689,13 @@
                     <li>Project / context</li>
                     <li>Message content</li>
                 </ul>
-                <p>When you submit the contact form, the website also processes technical information including your IP address, source page, browser locale, timezone and submission time.</p>This information is used for message delivery, spam prevention, rate limiting, security and roubleshooting.</p>
+                <ol>
+                    <li>Name</li>
+                    <li>Email address</li>
+                    <li>Project / context</li>
+                    <li>Message content</li>
+                </ol>
+                <p>When you submit the contact form, the website also processes technical information including your IP address, source page, browser locale, timezone and submission time. This information is used for message delivery, spam prevention, rate limiting, security and roubleshooting.</p>
                 <p>Hosting and security providers may also process basic technical information such as IP address, browser and device information, requested pages, referring source and time of access.</p>
                 <p>This is used for website delivery, privacy-friendly analytics, security, troubleshooting and basic operation.</p>
                 <h2>2. How information is used</h2>
