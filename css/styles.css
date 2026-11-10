@@ -5535,7 +5535,7 @@ body {
 
                 .services__accardion-header {
                     &::after {
-                        content: none;
+                        background-image: url('../images/icons/minus.svg');
                     }
                 }
 
@@ -7624,3 +7624,101 @@ body {
         }
     }
 }
+
+.metrics {
+
+    &.metrics--grid {
+
+        .metrics__items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 24px;
+
+            .metrics__item {
+                min-height: 168px;
+                border: 1px solid var(--gray-100);
+                border-radius: 24px;
+                padding: 24px;
+                background: var(--gray-50);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+        
+                .metrics__item-number {
+                    display: inline-block;
+                    font-family: var(--font-family);
+                    font-weight: 500;
+                    font-size: 32px;
+                    line-height: 1.25;
+                    color: var(--gray-900);
+                    margin-bottom: 32px;
+                }
+        
+                .metrics__item-title {
+                    display: inline-block;
+                    margin-top: auto;
+                    font-family: var(--font-family);
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 1.4;
+                    color: var(--gray-500);
+                }
+            }
+        }
+    }
+
+    &.metrics--row {
+        .metrics__items {
+            display: block;
+
+            .metrics__item {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding-block: 16px;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid var(--gray-100);
+                }
+
+                .metrics__item-number {
+                    width: 112px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    flex-shrink: 0;
+                    font-family: var(--font-family);
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 1.33;
+                    color: var(--gray-900);
+                }
+
+                .metrics__item-title {
+                    padding-left: 8px;
+                    font-family: var(--font-family);
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 1.67;
+                    color: var(--gray-500);
+                }
+            }
+        }
+    }
+
+
+}
+
+.faq__block {
+
+    .services__accardion {
+        .services__accardion-item {
+            .services__accardion-header,
+            .services__accardion-content {
+                padding-inline: 0;
+            }
+        }
+    }
+}
+
