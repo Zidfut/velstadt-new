@@ -7722,3 +7722,59 @@ body {
     }
 }
 
+.sources {
+    counter-reset: source;
+    
+    .sources__item {
+        
+        &.link--arrow.arrow--center {
+            padding: 24px 0;
+            justify-content: flex-start;
+            gap: 24px;
+            text-decoration: none;
+
+            &::after {
+                position: static;
+                transform: none;
+                margin-left: auto;
+                opacity: 0.4;
+            }
+        }
+
+        .sources__item-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 20px;
+            height: 16px;
+            flex-shrink: 0;
+
+            &::before {
+                counter-increment: source;
+                content: counter(source, decimal-leading-zero);
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 1.33;
+                text-align: center;
+                color: var(--gray-500);
+            }
+        }
+
+        .sources__item-title {
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.33;
+            color: var(--gray-900);
+
+            @media(width <= 768px) {
+                font-size: 16px;
+            }
+
+            @media(width <= 576px) {
+                font-size: 14px;
+            }
+        }
+    }
+}
