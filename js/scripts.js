@@ -74,6 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
+	const relatedSwiper = new Swiper(".related__swiper", {
+		slidesPerView: 'auto',
+		spaceBetween: 10,
+		breakpoints: {
+			576: {
+				slidesPerView: 2,
+			},
+			768: {
+				slidesPerView: 'auto',
+			},
+			1024: {
+				slidesPerView: 3,
+			},
+		}
+	});
+
 	const customerSwiper = new Swiper(".customer__swiper", {
 		slidesPerView: 'auto',
 		spaceBetween: 16,
