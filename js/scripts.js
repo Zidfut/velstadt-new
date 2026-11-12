@@ -76,16 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const relatedSwiper = new Swiper(".related__swiper", {
 		slidesPerView: 'auto',
-		spaceBetween: 10,
+		spaceBetween: 16,
 		breakpoints: {
 			576: {
 				slidesPerView: 2,
-			},
-			768: {
-				slidesPerView: 'auto',
+				spaceBetween: 16,
 			},
 			1024: {
 				slidesPerView: 3,
+				spaceBetween: 24,
 			},
 		}
 	});
