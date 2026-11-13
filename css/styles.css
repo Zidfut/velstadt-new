@@ -197,6 +197,10 @@ body {
     overflow-y: hidden;
 }
 
+.section:has(+ .footer) {
+    border-bottom: none;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -7012,8 +7016,15 @@ body {
     .section__header {
 
         .section__header-container {
+            display: grid;
             align-items: stretch;
+            grid-template-columns: 1.78fr minmax(360px, 1fr);
+            gap: 0;
             padding: 0;
+
+            @media(width <= 768px) {
+                grid-template-columns: 1fr;
+            }
         }
 
         .section__header-left {
@@ -7031,10 +7042,17 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            min-width: 460px;
             padding: 16px;
             border-left: 1px solid var(--gray-100);
+
+            @media(width <= 768px) {
+                border-left: none;
+                border-top: 1px solid var(--gray-100);
+            }
+
+            @media(width <= 768px) {
+                padding: 12px;
+            }
         }
 
         .section__subtitle {
@@ -7048,7 +7066,8 @@ body {
         .post__img {
             display: block;
             width: 100%;
-            max-width: 428px;
+            height: auto;
+            aspect-ratio: 1;
             border: 1px solid var(--gray-200);
             border-radius: 16px;
         }
@@ -7059,12 +7078,20 @@ body {
             justify-content: flex-start;
             column-gap: 48px;
             row-gap: 16px;
-            flex-wrap: wrap;
             margin-top: 64px;
 
             @media (width <= 1200px) {
                 column-gap: 24px;
                 margin-top: 52px;
+            }
+
+            @media (width <= 1024px) {
+                margin-top: 44px;
+                flex-wrap: wrap;
+            }
+
+            @media (width <= 768px) {
+                margin-top: 24px;
             }
 
             .post__details-item {
@@ -7085,6 +7112,10 @@ body {
                         @media (width <= 1200px) {
                             right: -12px;
                         }
+
+                        @media (width <= 1024px) {
+                            content: none;
+                        }
                     }
                 }
             }
@@ -7102,6 +7133,12 @@ body {
                 align-items: center;
                 justify-content: flex-start;
                 gap: 16px;
+                flex: 1 1 230px;
+
+                @media (width <= 1024px) {
+                    width: 100%;
+                }
+
 
                 .post__author-img {
                     display: block;
@@ -7165,12 +7202,20 @@ body {
         }
     }
 
+
+    .post__container {
+        display: grid;
+        grid-template-columns: 1fr 0.39fr;
+        padding: 0;
+    }
+
     .post__content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
         padding: 32px;
+        border-right: 1px solid var(--gray-100);
 
         @media(width <= 1024px) {
             padding: 24px;
@@ -7181,7 +7226,7 @@ body {
         }
 
         @media(width <= 576px) {
-            padding: 8px;
+            padding: 12px;
         }
 
         & > * + * {
@@ -7213,6 +7258,55 @@ body {
 
             li:not(:last-child) {
                 margin-bottom: 8px;
+            }
+        }
+    }
+
+    .post__sidebar {
+        padding: 128px 24px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 56px;
+
+        .toc {
+            width: 100%;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 16px;
+                border-left: 1px solid var(--gray-100);
+            }
+
+            a {
+                padding-inline: 16px;
+                font-family: var(--font-family);
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1.43;
+                color: var(--gray-500);
+                text-decoration: none;
+                position: relative;
+
+                &.active {
+                    font-weight: 500;
+                    color: var(--gray-900);
+
+                    &::before {
+                        content: '';
+                        width: 2px;
+                        height: 100%;
+                        background-color: var(--primary-500);
+                        position: absolute;
+                        top: 0;
+                        left: 1px;
+                    }
+                }
             }
         }
     }
