@@ -7207,6 +7207,10 @@ body {
         display: grid;
         grid-template-columns: 1fr 0.39fr;
         padding: 0;
+
+        @media(width <= 1024px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     .post__content {
@@ -7272,6 +7276,10 @@ body {
 
         .toc {
             width: 100%;
+
+            @media(width <= 1024px) {
+                display: none;
+            }
 
             ul {
                 list-style: none;
