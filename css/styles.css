@@ -98,6 +98,12 @@
     }
 }
 
+/* Filterable awards visibility must override the timeline layout display rules. */
+.ranking__timeline[hidden],
+.ranking__timeline-item[hidden] {
+    display: none !important;
+}
+
 @font-face {
     font-family: "Onest";
     src: url('../fonts/Onest/Onest-Regular.woff2');
@@ -174,6 +180,7 @@ body, html {
     font-family: var(--font-family), sans-serif;
     font-size: 16px;
     line-height: 1.4;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -271,7 +278,7 @@ body {
         font-size: 16px;
         line-height: 1.5;
     }
-    
+
     &.btn--icon {
         gap: 6px;
         min-width: 120px;
@@ -2339,7 +2346,7 @@ body {
     .custom__form-row {
         width: 100%;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
         gap: 16px;
 
@@ -2354,6 +2361,12 @@ body {
     .custom__form-item {
         width: 100%;
         position: relative;
+        margin-bottom: 10px;
+
+        > .wpcf7-form-control-wrap {
+            display: block;
+            width: 100%;
+        }
 
         input {
             display: flex;
@@ -2395,7 +2408,9 @@ body {
         }
 
         input:focus + label,
-        input:not(:placeholder-shown) + label {
+        input:not(:placeholder-shown) + label,
+        .wpcf7-form-control-wrap:has(input:focus) + label,
+        .wpcf7-form-control-wrap:has(input:not(:placeholder-shown)) + label {
             top: 0;
             transform: translateY(-50%);
             font-size: 12px;
@@ -2424,6 +2439,58 @@ body {
             letter-spacing: 0.01em;
             color: var(--gray-500);
         }
+
+        > .wpcf7-form-control-wrap {
+            display: block;
+            width: 100%;
+        }
+
+        .wpcf7-list-item {
+            display: block;
+            margin: 0;
+        }
+
+        .wpcf7-list-item label {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .wpcf7-list-item-label {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 1.33;
+            letter-spacing: 0.01em;
+            color: var(--gray-500);
+        }
+
+        input[type="checkbox"] {
+            display: block;
+            width: 16px;
+            height: 16px;
+            flex: 0 0 16px;
+            margin: 0;
+            border: 1px solid var(--gray-200);
+            border-radius: 4px;
+            background-color: transparent;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:hover {
+            background-color: var(--primary-100);
+        }
+
+        input[type="checkbox"]:checked {
+            border-color: var(--primary-500);
+            background-color: var(--primary-500);
+            background-image: url('../images/icons/check.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 12px;
+        }
     }
 
     .custom__checkbox {
@@ -2447,6 +2514,7 @@ body {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            pointer-events: none;
         }
 
         input {
@@ -2463,6 +2531,22 @@ body {
             border-radius: 4px;
             border: 1px solid var(--gray-200);
             background-color: transparent;
+            pointer-events: none;
+        }
+
+        .wpcf7-form-control-wrap,
+        .wpcf7-acceptance,
+        .wpcf7-list-item,
+        .wpcf7-list-item label {
+            display: block;
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            z-index: 1;
+        }
+
+        .wpcf7-list-item-label {
+            display: none;
         }
 
         &:hover input ~ .checkmark {
@@ -2471,6 +2555,11 @@ body {
 
         /* When the checkbox is checked, add a blue background */
         input:checked ~ .checkmark {
+            background-color: var(--primary-500);
+            border-color: var(--primary-500);
+        }
+
+        &:has(input:checked) .checkmark {
             background-color: var(--primary-500);
             border-color: var(--primary-500);
         }
@@ -2493,15 +2582,61 @@ body {
             display: block;
         }
 
+        &:has(input:checked) .checkmark:after {
+            display: block;
+        }
+
         /* Style the checkmark/indicator */
         .checkmark:after {
             
         }
     }
 
+    [type='submit'] {
+        cursor: pointer;
+    }
+
+    .wpcf7-spinner {
+        display: none;
+    }
+
+    .wpcf7-not-valid-tip,
+    .wpcf7-response-output {
+        font-family: var(--font-family);
+        font-size: 12px;
+        line-height: 1.33;
+    }
+
+    .wpcf7-not-valid-tip {
+        position: absolute;
+        bottom: -18px;
+        left: 20px;
+    }
+
+    .wpcf7-response-output {
+        margin: 0;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: none !important;
+    }
+
+    .wpcf7-not-valid {
+        border-color: var(--red-200) !important;
+        box-shadow: 0 0 0 2px var(--red-200) !important;
+    }
+
+    &.invalid {
+        color: #dc3232;
+    }
+
+    &.sent {
+        color: #46b450;
+    }
+
+
 }
 
-.blog {
+.blog__section {
     border-bottom: 1px solid var(--gray-100);
 
     .blog__container {
@@ -2634,12 +2769,14 @@ body {
 
         .main__card-img {
             display: block;
-            width: auto;
             max-width: 100%;
-            margin: 115px auto 120px;
+            width: calc(100% - 20px);
+            height: auto;
+            aspect-ratio: 226 / 135;
+            margin: 65px auto 70px;
 
             @media(width <= 1024px) {
-                margin: 65px auto 70px;
+                margin: 65px auto 30px;
             }
 
             @media(width <= 768px) {
@@ -2712,6 +2849,8 @@ body {
                 img {
                     display: block;
                     width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
 
@@ -5771,6 +5910,14 @@ body {
         @media(width <= 1024px) {
             grid-template-columns: 1fr;
         }
+
+        &.page__container--wide {
+            grid-template-columns: 1fr;
+
+            .page__content {
+                border-right: 0;
+            }
+        }
     }
 
     .page__content {
@@ -5804,10 +5951,6 @@ body {
             padding: var(--padding) var(--padding) 36px;
         }
 
-        & > ul {
-            padding-left: 20px;
-        }
-
         & > h1 { font-size: 32px; }
         & > h2 { font-size: 24px; }
         & > h3 { font-size: 20px; }
@@ -5819,10 +5962,25 @@ body {
             line-height: 1.33;
             letter-spacing: -0.02em;
             color: var(--gray-900);
+            scroll-margin-top: 112px;
 
             &:not(:first-child) {
                 margin-top: 48px;
             }
+        }
+
+        a {
+            color: var(--primary-500);
+            text-underline-offset: 3px;
+        }
+
+        & > :is(ol, ul) {
+            padding-left: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
     }
 
@@ -5898,7 +6056,7 @@ body {
 
     .awards__cards-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(296px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
         gap: 24px;
         padding-block: var(--padding);
     
@@ -6340,6 +6498,7 @@ body {
 
             @media(width <= 576px) {
                 padding-block: 44px 24px;
+                border-right: none;
                 border-bottom: 1px solid var(--gray-100);
             }
         }
@@ -6639,7 +6798,7 @@ body {
 
         .blog__grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(286px, 1fr));
             padding-block: var(--padding);
             gap: 24px;
 
@@ -6840,6 +6999,17 @@ body {
                 background: var(--primary-500);
             }
 
+            &.is-disabled {
+                opacity: 0.35;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            &.blog__pagination-ellipsis {
+                border-color: transparent;
+                cursor: default;
+            }
+
             &.blog__pagination-link-prev {
                 background-image: url('../images/icons/chevron-right.svg');
                 transform: rotate(180deg);
@@ -6865,6 +7035,186 @@ body {
 
         .blog__filter-container {
             padding: 0;
+        }
+
+        .blog__filter-form {
+            padding: 24px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-bottom: 1px solid var(--gray-100);
+
+            @media(width <= 1024px) {
+                padding-inline: 10px;
+            }
+
+            @media(width <= 640px) {
+                align-items: stretch;
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        .blog__filter-search {
+            width: min(100%, 560px);
+            min-width: 0;
+            height: 48px;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            border: 1px solid var(--gray-200);
+            border-radius: 99px;
+            background: var(--back);
+            transition: border-color .2s ease, box-shadow .2s ease;
+
+            &:focus-within {
+                border-color: var(--primary-100);
+                box-shadow: 0 0 0 2px var(--primary-200);
+            }
+
+            @media(width <= 640px) {
+                width: 100%;
+            }
+
+            legend {
+                width: auto;
+                margin: 0;
+                padding-inline: 6px;
+                position: absolute;
+                top: 0;
+                left: 20px;
+                z-index: 1;
+                transform: translateY(-50%);
+                background: var(--back);
+                font-family: var(--font-family);
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1;
+                color: var(--gray-500);
+            }
+        }
+
+        .blog__filter-search-control {
+            height: 100%;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+
+            @media(width <= 640px) {
+                padding-inline: 16px;
+            }
+
+            input {
+                width: 100%;
+                height: 100%;
+                min-width: 0;
+                padding: 0 0 0 12px;
+                border: 0;
+                outline: 0;
+                background: transparent;
+                font: inherit;
+                font-size: 16px;
+                line-height: 1.5;
+                color: var(--gray-900);
+                caret-color: var(--primary-500);
+
+                &::placeholder {
+                    color: var(--gray-400);
+                    opacity: 1;
+                }
+
+                &::-webkit-search-cancel-button {
+                    cursor: pointer;
+                }
+            }
+
+            button {
+                width: 20px;
+                height: 20px;
+                flex: 0 0 20px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                color: var(--gray-500);
+                cursor: pointer;
+                transition: color .2s ease;
+
+                @media(hover: hover) {
+                    &:hover {
+                        color: var(--primary-500);
+                    }
+                }
+            }
+        }
+
+        .blog__filter-sort-wrap {
+            width: min(100%, 260px);
+            min-width: 0;
+            height: 48px;
+            margin-left: auto;
+            padding: 0;
+            position: relative;
+            border: 1px solid var(--gray-200);
+            border-radius: 99px;
+            background: var(--back);
+            transition: border-color .2s ease, box-shadow .2s ease;
+
+            &:focus-within {
+                border-color: var(--primary-100);
+                box-shadow: 0 0 0 2px var(--primary-200);
+            }
+
+            @media(width <= 640px) {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            legend {
+                width: auto;
+                margin: 0;
+                padding-inline: 6px;
+                position: absolute;
+                top: 0;
+                left: 20px;
+                z-index: 1;
+                transform: translateY(-50%);
+                background: var(--back);
+                font-family: var(--font-family);
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1;
+                color: var(--gray-500);
+            }
+
+            select {
+                width: 100%;
+                height: 100%;
+                padding: 0 48px 0 20px;
+                border: 0;
+                outline: 0;
+                background-color: transparent;
+                background-image: url('../images/icons/chevron-down.svg');
+                background-repeat: no-repeat;
+                background-position: right 20px center;
+                background-size: 20px;
+                appearance: none;
+                font: inherit;
+                font-size: 16px;
+                line-height: 1.5;
+                font-weight: 400;
+                color: var(--gray-900);
+                cursor: pointer;
+                caret-color: var(--primary-500);
+
+                @media(width <= 640px) {
+                    padding-inline: 16px 44px;
+                    background-position: right 16px center;
+                }
+            }
         }
 
         .blog__filter-category-wrap {
@@ -7133,7 +7483,7 @@ body {
                 align-items: center;
                 justify-content: flex-start;
                 gap: 16px;
-                flex: 1 1 230px;
+                /* flex: 1 1 230px; */
 
                 @media (width <= 1024px) {
                     width: 100%;
@@ -7207,6 +7557,14 @@ body {
         display: grid;
         grid-template-columns: 1fr 0.39fr;
         padding: 0;
+
+        &.post__container--wide {
+            grid-template-columns: 1fr;
+
+            .post__content {
+                border-right: 0;
+            }
+        }
 
         @media(width <= 1024px) {
             grid-template-columns: 1fr;
