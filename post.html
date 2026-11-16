@@ -419,7 +419,7 @@
         </div>
     </header>
 
-    <div class="page post">
+    <div class="page post" id="top">
         <div class="header__duplicate header__duplicate--dark">
             <div class="container header__duplicate-container section__lines"></div>
         </div>
@@ -906,6 +906,17 @@
             </div>
             <div class="post__sidebar">
                 <div class="post__sidebar-container">
+
+                    <div class="post__progress">
+                        <div class="post__progress-header">
+                            <span class="post__progress-title">On this page</span>
+                            <a href="#top" class="post__progress-top"></a>
+                        </div>
+                        <div class="post__progress-line">
+                            <span class="post__progress-line-current" style="width: 30%;"></span>
+                        </div>
+                    </div>
+
                     <div class="toc">
                         <ul>
                             <li><a href="#" class="active">Information collected</a></li>
@@ -918,6 +929,52 @@
                             <li><a href="#">Security</a></li>
                         </ul>
                     </div>
+
+                    <div class="post__sidebar-item post__categories">
+                        <h3 class="h3 post__sidebar-title">Categories</h3>
+                        <ul>
+                            <li><span>Ransomware</span></li>
+                            <li><span>Threat Intelligence</span></li>
+                            <li><span>Threat Landscape</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="post__sidebar-item post__share">
+                        <h3 class="h3 post__sidebar-title">Share article</h3>
+                        <ul class="share__socials">
+                            <li><a href="#"><img src="images/icons/share-link.svg" alt=""></a></li>
+                            <li><a href="#"><img src="images/icons/share-email.svg" alt=""></a></li>
+                            <li><a href="#"><img src="images/icons/share-li.svg" alt=""></a></li>
+                            <li><a href="#"><img src="images/icons/share-x.svg" alt=""></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="post__sidebar-item google__badge">
+                        <a href="#" target="_blank"><img src="images/google-source-badge.svg" alt=""></a>
+                    </div>
+
+                    <div class="post__sidebar-item post__sidebar-form">
+                        <form class="custom__form subs__form">
+                            <div class="custom__form-header">
+                                <span class="custom__form-subtitle">Velstadt Brief</span>
+                                <h3 class="h3 custom__form-title">Stay informed</h3>
+                                <p>Monthly threat research and security insights.</p>
+                            </div>
+                            <div class="custom__form-row subs__form-row">
+                                <div class="subs__form-item custom__form-item">
+                                    <input type="text" id="email" name="email" placeholder="Email">
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <div class="custom__form-row">
+                                <button type="submit" class="btn btn--lg btn--primary">Subscribe </button>
+                            </div>
+                            <div class="custom__form-row acceptance subs__form-row">
+                                <p>By clicking “Subscribe,” I confirm that I have read and accepted the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
 
