@@ -7676,6 +7676,10 @@ body {
     .post__sidebar {
         padding: 128px 24px 24px;
 
+        @media(width <= 1024px) {
+            padding: 24px;
+        }
+
         .post__sidebar-container {
             display: flex;
             flex-direction: column;
@@ -7684,6 +7688,7 @@ body {
             width: 100%;
             position: sticky;
             top: 128px;
+            gap: 56px;
         }
 
         .post__sidebar-title {
@@ -7696,11 +7701,17 @@ body {
         }
 
         .post__sidebar-item {
-            margin-top: 56px;
+            @media(width <= 1024px) {
+                display: none;
+            }
         }
 
         .post__progress {
             margin-bottom: 24px;
+
+            @media(width <= 1024px) {
+                display: none;
+            }
 
             .post__progress-header {
                 display: flex;
@@ -7898,6 +7909,10 @@ body {
             border-radius: 16px;
             padding: 24px;
             background: var(--gray-50);
+
+            @media(width <= 1024px) {
+                display: none;
+            }
 
             [type = 'submit'] {
                 width: 100%;
