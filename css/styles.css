@@ -7411,6 +7411,8 @@ body {
 }
 
 .post {
+    border-bottom: 1px solid var(--gray-100);
+
     .section__header {
 
         .section__header-container {
