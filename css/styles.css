@@ -7552,7 +7552,6 @@ body {
         }
     }
 
-
     .post__container {
         display: grid;
         grid-template-columns: 1fr 0.39fr;
@@ -7631,6 +7630,11 @@ body {
         align-items: flex-start;
         justify-content: flex-start;
         gap: 56px;
+
+        .post__sidebar-container {
+            position: sticky;
+            top: 128px;
+        }
 
         .toc {
             width: 100%;
